@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра на графе</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    <body>
+        <div id="levelMenu" class="panel">
+            <h2>Выберите уровень</h2>
+            <ul id="levelList"></ul>
+        </div>
+
+        <div class="game-container">
+            <div id="instructions" class="panel">
+                <h2>Инструкция по игре</h2>
+                <p>Используйте стрелки на клавиатуре или мышь для перемещения по вершинам графа.</p>
+                <p>Нажмите Space, чтобы разместить защитника на вершине.</p>
+                <p>Нажмите Enter, чтобы подтвердить расстановку и перейти к следующей атаке.</p>
+                <p>Цель игры - защитить все вершины от череды атак.</p>
+            </div>
+            <canvas id="gameCanvas" width="750" height="650"></canvas>
+            <div id="infoPanel" class="panel">
+                <br><div id="counter">Защитников осталось: 2</div></br>
+                <br><div id="redCounter">Атакованных вершин: 0</div></br>
+                <div id="message"></div>
+            </div>
+        </div>
+        <script type="module" src="game3.js"></script>
+    </body>
+
+
+</body>
+</html>

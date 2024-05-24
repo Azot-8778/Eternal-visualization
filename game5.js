@@ -1,5 +1,4 @@
-
-    // Получаем ссылку на холст
+     // Получаем ссылку на холст
     var canvas = document.getElementById("gameCanvas");
     var context = canvas.getContext("2d");
 
@@ -12,7 +11,7 @@
     var currentPlayer = "A";
 
     // Начальная вершина игрока
-    var allVertexCount = 6;
+    var allVertexCount = 8;
 
     // Количество зеленых вершин
     var greenVertexCount = 0;
@@ -21,7 +20,7 @@
     var redVertexCount = 0;
 
     // Максимальное количество зеленых вершин
-    var maxGreenVertexCount = 3;
+    var maxGreenVertexCount = 4;
 
     // Обработчик нажатия клавиш
     document.addEventListener("keydown", keyDownHandler, false);
@@ -35,38 +34,50 @@
     var currentStage = 'placement'; // 'placement', 'attack', или 'selectDefender'
     var currentDefender = 1; // Текущий номер защитника
     var currentAttackedVertex = null; // Текущая атакованная вершина
+var graph = {
+    A: { x: 50, y: 125, color: "#000000", marked: false },
+    B: { x: 150, y: 50, color: "#000000", marked: false },
+    C: { x: 250, y: 50, color: "#000000", marked: false },
+    D: { x: 350, y: 125, color: "#000000", marked: false },
+    E: { x: 50, y: 225, color: "#000000", marked: false },
+    F: { x: 150, y: 300, color: "#000000", marked: false },
+    G: { x: 250, y: 300, color: "#000000", marked: false },
+    H: { x: 350, y: 225, color: "#000000", marked: false }
+};
 
-    var graph = {
-      A: { x: 50, y: 250, color: "#000000", marked: false },
-      B: { x: 200, y: 50, color: "#000000", marked: false },
-      //C: { x: 350, y: 50, color: "#000000", marked: false },
-      D: { x: 250, y: 50, color: "#000000", marked: false },
-      E: { x: 350, y: 200, color: "#000000", marked: false },
-      //F: { x: 350, y: 200, color: "#000000", marked: false },
-      //G: { x: 50, y: 350, color: "#000000", marked: false },
-      H: { x: 200, y: 250, color: "#000000", marked: false },
-      I: { x: 350, y: 350, color: "#000000", marked: false },
-    };
+// Задаем связи между вершинами графа короны
+graph.A.up = "B";
+graph.A.right = "D";
+graph.A.down = "E";
 
-    // Задаем связи между вершинами графа
-    graph.A.right = "B";
-    graph.A.up = "B";
+graph.B.right = "C";
+graph.B.left = "A";
+graph.B.down = "F";
 
-    graph.B.left = "A";
-    graph.B.right = "D";
-    graph.B.down = "H";
+graph.C.right = "D";
+graph.C.left = "B";
+graph.C.down = "G";
 
-    graph.D.right = "E";
-    graph.D.left = "B";
+graph.D.right = "A";
+graph.D.down = "H";
+graph.D.up = "C";
 
-    graph.E.left = "H";
-    graph.E.up = "D";
+graph.E.up = "A";
+graph.E.right = "H";
+graph.E.down = "F";
 
-    graph.H.up = "B";
-    graph.H.right = "E";
-    graph.H.down = "I";
+graph.F.left = "E";
+graph.F.right = "G";
+graph.F.up = "B";
 
-    graph.I.up = "H";
+graph.G.up = "C";
+graph.G.right = "H";
+graph.G.left = "F";
+
+graph.H.up = "D";
+graph.H.down = "G";
+graph.H.left = "E";
+
 
     // Функция для обработки нажатия клавиш
     function keyDownHandler(event) {

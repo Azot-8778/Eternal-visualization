@@ -1,29 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Игра на графе</title>
-
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор игры</title>
+    <link rel="stylesheet" href="styleMain.css">
 </head>
-    <body>
-        <div class="game-container">
-            <div id="instructions" class="panel">
-                <h2>Инструкция по игре</h2>
-                <p>Используйте стрелки на клавиатуре или мышь для перемещения по вершинам графа.</p>
-                <p>Нажмите Space, чтобы разместить защитника на вершине.</p>
-                <p>Нажмите Enter, чтобы подтвердить расстановку и перейти к следующей атаке.</p>
-                <p>Цель игры - защитить все вершины от череды атак.</p>
-            </div>
-            <canvas id="gameCanvas" width="400" height="400"></canvas>
-            <div id="infoPanel" class="panel">
-                <br><div id="counter">Защитников осталось: 3</div></br>
-                <br><div id="redCounter">Атакованных вершин: 0</div></br>
-                <div id="message"></div>
-            </div>
-        </div>
-        <script src="game.js"></script>
-    </body>
-    
-    
+<body>
+    <h1>Выберите уровень</h1>
+    <ul>
+        <li><a href="game1.html">Уровень 1</a></li>
+        <li><a href="game2.html">Уровень 2</a></li>
+        <li><a href="game3.html">Уровень 3</a></li>
+        <li><a href="game4.html">Уровень 4</a></li>
+        <li><a href="game5.html">Уровень 5</a></li>
+        <!-- Добавьте ссылки на другие игры, если они есть -->
+    </ul>
 </body>
 </html>
